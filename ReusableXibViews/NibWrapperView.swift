@@ -9,11 +9,11 @@
 import UIKit
 
 /// Class used to wrap a view automatically loaded form a nib file
-class NibWrapperView<T: UIView>: UIView {
+open class NibWrapperView<T: UIView>: UIView {
     /// The view loaded from the nib
-    var contentView: T
+    public var contentView: T
 
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         contentView = T.loadFromNib()
         super.init(coder: coder)
         prepareContentView()
@@ -35,7 +35,7 @@ class NibWrapperView<T: UIView>: UIView {
         contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
-    override func prepareForInterfaceBuilder() {
+    public override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         contentView.prepareForInterfaceBuilder()
     }
